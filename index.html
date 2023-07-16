@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,23 +13,42 @@
 </head>
 
 <body>
-    <div class="container">	
-        <div class="user-container"></div>	
-        <div class="quote-container"></div>	
-        <div class="content-container">	
-            <div class="pokemon-container"></div>	
-            <div class="meat-container"></div>	
-        </div>	
-        <div class="friends">	
-            <h4>Friends</h4>	
-            <div class="friends-container">	
-            </div>	
-        </div>	
-        <div class="buttons">	
-            <button>Load User Data</button>	
-            <button>Display User</button>	
-        </div>	
+    <script id="friends-template" type="text/x-handlebars-template">
+        {{#each friends}}
+            <h5>{{this}}</h5>
+        {{/each}}
+    </script>
+    <script id="main-template" type="text/x-handlebars-template">
+        <div class="container">
+            <div class="user-container">{{user}}</div>
+            <div class="quote-container">{{quote}}</div>
+            <div class="content-container">
+                <div class="pokemon-container">{{pokemon}}</div>
+                <div class="meat-container">{{aboutMe}}</div>
+            </div>
+        </div>
+    </script>
+    <div class="friends">
+        <h4>Friends</h4>
     </div>
+    <div class="buttons">
+        <button id="generate">Generate User</button>
+        <button id="display">Display Saved User</button>
+        <button id="save">Save User</button>
+        <ul class="menu">
+            <li><a href="#">Пункт меню 1</a></li>
+            <li><a href="#">Пункт меню 2</a></li>
+            <li><a href="#">Пункт меню 3</a></li>
+        </ul>
+    </div>
+    </div>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="main.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="APIManager.js"></script>
 </body>
 
 </html>
