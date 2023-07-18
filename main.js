@@ -1,8 +1,11 @@
+var currentUser
+
 function generate() {
     (async function () {
         try {
             const apiManager = await new APIManager()
             Renderer.display(apiManager)
+            currentUser = apiManager
         } catch (error) {
             console.error(error)
         }
@@ -10,27 +13,21 @@ function generate() {
 }
 
 function display() {
-    alert(`display`)
-    // let user = APIManager.generate()
+    Renderer.viewSavedUsers(APIManager.transferSavedUsers())
 }
 
 function save() {
-    alert(`save`)
-    // let user = APIManager.generate()
+    APIManager.save(currentUser)
 }
 
-$('#generate_button').on('click', function () {
-    apiManager.fetchUserData().then(() => {
-        user = new User(apiManager.data)
-        currentUser = user
-        renderer.renderUserPage(user)
-    }).catch(error => {
-        alert("Couldn't get data from API's!")
-    });
-})
+function chooseUser() {
+    currentUser = APIManager.findUserByName($(this).text())
+    Renderer.display(currentUser)
+}
 
 
 $(`.buttons`)
     .on(`click`, `#generate`, generate)
     .on(`click`, `#display`, display)
     .on(`click`, `#save`, save)
+    .on(`click`, `.saved-user`, chooseUser)

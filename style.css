@@ -22,9 +22,23 @@ body {
     grid-column: 1;
     font-size: 25px;
     background-color: #3498db;
+    color: #ecf0f1;
     padding: 1vmax;
     box-shadow: 1px 1px 3px black;
     border-bottom-right-radius: 4px;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+}
+
+.user-container img {
+    grid-row: 1 / span 2;
+    border-radius: 50%;
+}
+
+.user-container span {
+    display: block;
 }
 
 .user-info {
@@ -68,8 +82,8 @@ body {
 .friends {
     grid-row: 3;
     grid-column: 3;
-    /* background-color: #3498db; */
-    background-color: greenyellow;
+    background-color: #3498db;
+    /* background-color: greenyellow; */
     font-size: 1.5vmax;
     color: #ecf0f1;
     border-top-left-radius: 4px;
@@ -91,7 +105,7 @@ button {
     width: 200px;
     height: 50px;
     border-radius: 6px;
-    background-color: #27ae60;
+    background-color: hotpink;
     color: #ecf0f1;
     font-size: 1vmax;
     cursor: pointer;
@@ -123,7 +137,27 @@ button {
     border-bottom: 1px solid #2c3e50;
 }
 
+.meat-container {
+    padding: 1vw;
+}
+
 .meat-text {
     padding: 1vw;
     font-size: 1vmax;
+}
+
+.popup {
+    position: absolute;
+    display: none;
+    background-color: hotpink;
+    color: #ecf0f1;
+    font-size: 1vmax;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.saved-user {
+    padding: 10px;
 }
