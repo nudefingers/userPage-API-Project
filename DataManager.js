@@ -6,7 +6,7 @@ const BACON_URL = `https://baconipsum.com/api/?type=all-meat&paras=1`
 const POKE_URL = `https://pokeapi.co/api/v2/pokemon/`
 
 
-class APIManager {
+class DataManager {
     static _users = []
 
     constructor() {
@@ -68,17 +68,17 @@ class APIManager {
     }
 
     static save(user) {
-        if (user && !APIManager._users.includes(user)) {
-            APIManager._users.push(user)
+        if (user && !DataManager._users.includes(user)) {
+            DataManager._users.push(user)
         }
-        console.log(APIManager._users)
+        console.log(DataManager._users)
     }
 
     static transferSavedUsers() {
-        return APIManager._users.map(u => u.user.name)
+        return DataManager._users.map(u => u.user.name)
     }
 
     static findUserByName(name) {
-        return APIManager._users.find(u => u.user.name === name)
+        return DataManager._users.find(u => u.user.name === name)
     }
 }

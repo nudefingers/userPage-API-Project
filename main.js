@@ -3,9 +3,9 @@ var currentUser
 function generate() {
     (async function () {
         try {
-            const apiManager = await new APIManager()
-            Renderer.display(apiManager)
-            currentUser = apiManager
+            const data = await new DataManager()
+            Renderer.display(data)
+            currentUser = data
         } catch (error) {
             console.error(error)
         }
@@ -13,15 +13,15 @@ function generate() {
 }
 
 function display() {
-    Renderer.viewSavedUsers(APIManager.transferSavedUsers())
+    Renderer.viewSavedUsers(DataManager.transferSavedUsers())
 }
 
 function save() {
-    APIManager.save(currentUser)
+    DataManager.save(currentUser)
 }
 
 function chooseUser() {
-    currentUser = APIManager.findUserByName($(this).text())
+    currentUser = DataManager.findUserByName($(this).text())
     Renderer.display(currentUser)
 }
 
